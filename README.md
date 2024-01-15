@@ -21,8 +21,8 @@ virsh net-list --all
 cd /home/ocpadmin
 mkdir ocp
 cd /home/ocpadmin/ocp
-wget -O public_network.xml https://raw.githubusercontent.com/amitsindha/ocp-manual/main/scripts/public_network.xml
-wget -O private_network.xml https://raw.githubusercontent.com/amitsindha/ocp-manual/main/scripts/private_network.xml
+wget -O public_network.xml https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/public_network.xml
+wget -O private_network.xml https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/private_network.xml
 virsh net-define /home/ocpadmin/ocp/public_network.xml
 virsh net-autostart  public_network
 virsh net-start public_network
