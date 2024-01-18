@@ -104,9 +104,12 @@ ssh ocphelperadmin@192.168.10.210
 ```sh
 sudo  dnf install dhcp-server -y
 cd /home/ocpadmin/ocp
-sudo wget -O dhcpd.conf https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/named.conf
-sudo cp named.conf /etc/named.conf
-sudo rm named.conf 
-
-
+sudo wget -O dhcpd.conf https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/dhcpd.conf
+sudo cp dhcpd.conf /etc/dhcp/dhcpd.conf
+sudo rm dhcpd.conf 
+sudo firewall-cmd --add-service=dhcp --zone=internal --permanent
+sudo firewall-cmd --reload
+sudo systemctl enable dhcpd
+sudo systemctl start dhcpd
+sudo systemctl status dhcpd
 ```
