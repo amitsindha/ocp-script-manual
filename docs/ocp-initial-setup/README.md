@@ -130,6 +130,7 @@ OCP Remote Login faile with certificate error solution
 
 https://access.redhat.com/solutions/4505101
 
+```sh
 sudo ufw status verbose
 sudo ufw allow OpenSSH
 sudo ufw allow ssh
@@ -137,6 +138,7 @@ sudo ufw allow https
 sudo ufw allow 6443/tcp
 sudo ufw show added
 sudo ufw enable
+```
 
 https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-18-04
 
