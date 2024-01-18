@@ -70,6 +70,6 @@ sudo wget -O named.conf https://raw.githubusercontent.com/amitsindha/ocp-script-
 sudo cp named.conf /etc/named.conf
 sudo rm named.conf 
 sudo mkdir -p  /etc/named/zones/
-sudo wget -O db.massuite.online https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/massuite.online
+sudo wget -O db.massuite.online https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/db.massuite.online
 ```
 
