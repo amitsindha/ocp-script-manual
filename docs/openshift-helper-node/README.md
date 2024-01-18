@@ -159,12 +159,26 @@ Select the check box Automatically connect
 ![image](https://github.com/amitsindha/Openshift-local/assets/6096922/8efe289b-7f61-43b2-aee1-5a58effb469a)
 
 
-Update host entery in the ocp healper node
+
+Exit form server 
+
+Login to Main server
 
 ```sh
-vi /etc/hosts
+ssh ocpadmin@massuite.online
 ```
- 
+
+Check if the Healper node is runniung
+
+```sh
+virsh list --all
+```
+
+Get the IP address of the OCP Healper node
+
+```sh
+virsh net-dhcp-leases public_network
+```
 
 Reference URL 
 
