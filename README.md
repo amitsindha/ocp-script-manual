@@ -39,7 +39,9 @@ rm -rf private_network.xml
 
 * [OCP Healper Node Setup](docs/openshift-helper-node/README.md) 
 
-## OCP Helper Node - Setup Firewall, Network Zone and DNS (Change your IP)
+## Firewall, Network Zone and DNS 
+
+Connect to OCP Helper node (Change your IP)
 
 ```sh
 ssh ocphelperadmin@192.168.10.154
@@ -56,7 +58,7 @@ sudo firewall-cmd --list-all --zone=internal
 sudo firewall-cmd --list-all --zone=external
 ```
 
-## OCP Helper Node - Setup OCP Zone on Bind DNS
+## OCP Zone on Bind DNS
 
 ```sh
 ssh ocphelperadmin@192.168.10.154
@@ -95,7 +97,7 @@ sudo systemctl reload NetworkManager
 #ping ocp-healper
 ```
 
-## OCP Helper Node - DHCP Setup
+## DHCP Setup
 
 ```sh
 ssh ocphelperadmin@192.168.10.210
