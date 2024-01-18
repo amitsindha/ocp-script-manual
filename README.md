@@ -324,3 +324,168 @@ sudo systemctl enable --now haproxy.service dhcpd httpd tftp named
 sudo systemctl restart haproxy.service dhcpd httpd tftp named
 sudo systemctl status haproxy.service dhcpd httpd tftp named
 ```
+
+## Create Bootstrap, Master and Worker nodes
+
+```sh
+ssh ocpadmin@your_server
+```
+
+```sh
+sudo virt-install -n ocp-bootstrap.massuite.online \
+--description "Bootstrap Machine for Openshift 4 Cluster" \
+--ram=16384 \
+--vcpus=6 \
+--os-type=Linux \
+--os-variant=rhel8.0 \
+--noreboot \
+--disk pool=default,bus=virtio,size=50 \
+--graphics none \
+--serial pty \
+--pxe \
+--network bridge=private_network,mac=52:54:00:4e:a5:b6 \
+--graphics vnc,listen=0.0.0.0,port=50071,keymap=fr \
+--noautoconsole
+
+sudo virt-install -n master01.massuite.online \
+--description "Master01 Machine for Openshift 4 Cluster" \
+--ram=16384 \
+--vcpus=4 \
+--os-type=Linux \
+--os-variant=rhel8.0 \
+--noreboot \
+--disk pool=default,bus=virtio,size=200 \
+--graphics none \
+--serial pty \
+--console pty \
+--pxe \
+--network bridge=private_network,mac=52:54:00:62:b0:cb \
+--graphics vnc,listen=0.0.0.0,port=50072,keymap=fr \
+--noautoconsole
+
+sudo virt-install -n master02.massuite.online \
+--description "Master02 Machine for Openshift 4 Cluster" \
+--ram=16384 \
+--vcpus=4 \
+--os-type=Linux \
+--os-variant=rhel8.0 \
+--noreboot \
+--disk pool=default,bus=virtio,size=200 \
+--graphics none \
+--serial pty \
+--pxe \
+--network bridge=private_network,mac=52:54:00:ac:c8:d2 \
+--graphics vnc,listen=0.0.0.0,port=50073,keymap=fr \
+--noautoconsole
+
+sudo virt-install -n master03.massuite.online \
+--description "Master03 Machine for Openshift 4 Cluster" \
+--ram=16384 \
+--vcpus=4 \
+--os-type=Linux \
+--os-variant=rhel8.0 \
+--noreboot \
+--disk pool=default,bus=virtio,size=200 \
+--graphics none \
+--serial pty \
+--pxe \
+--network bridge=private_network,mac=52:54:00:ac:1b:49 \
+--graphics vnc,listen=0.0.0.0,port=50074,keymap=fr \
+--noautoconsole
+
+sudo virt-install -n worker01.massuite.online \
+--description "Worker01 Machine for Openshift 4 Cluster" \
+--ram=16384 \
+--vcpus=4 \
+--os-type=Linux \
+--os-variant=rhel8.0 \
+--noreboot \
+--disk pool=default,bus=virtio,size=50 \
+--graphics none \
+--serial pty \
+--pxe \
+--network bridge=private_network,mac=52:54:00:08:56:ed \
+--graphics vnc,listen=0.0.0.0,port=50075,keymap=fr \
+--noautoconsole
+
+sudo virt-install -n worker02.massuite.online \
+--description "Worker02 Machine for Openshift 4 Cluster" \
+--ram=16384 \
+--vcpus=4 \
+--os-type=Linux \
+--os-variant=rhel8.0 \
+--noreboot \
+--disk pool=default,bus=virtio,size=50 \
+--graphics none \
+--serial pty \
+--pxe \
+--network bridge=private_network,mac=52:54:00:a0:5a:d2 \
+--graphics vnc,listen=0.0.0.0,port=50076,keymap=fr \
+--noautoconsole
+
+sudo virt-install -n worker03.massuite.online \
+--description "Worker03 Machine for Openshift 4 Cluster" \
+--ram=16384 \
+--vcpus=4 \
+--os-type=Linux \
+--os-variant=rhel8.0 \
+--noreboot \
+--disk pool=default,bus=virtio,size=50 \
+--graphics none \
+--serial pty \
+--pxe \
+--network bridge=private_network,mac=52:54:00:47:5d:95 \
+--graphics vnc,listen=0.0.0.0,port=50077,keymap=fr \
+--noautoconsole
+
+sudo virt-install -n worker04.massuite.online \
+--description "Worker04 Machine for Openshift 4 Cluster" \
+--ram=16384 \
+--vcpus=4 \
+--os-type=Linux \
+--os-variant=rhel8.0 \
+--noreboot \
+--disk pool=default,bus=virtio,size=100 \
+--graphics none \
+--serial pty \
+--pxe \
+--network bridge=private_network,mac=52:54:00:85:41:f8 \
+--graphics vnc,listen=0.0.0.0,port=50078,keymap=fr \
+--noautoconsole
+```
+
+```sh
+virsh list --all
+```
+
+```sh
+virsh start ocp-bootstrap.massuite.online
+```
+
+```sh
+virsh start master01.massuite.online
+```
+
+```sh
+virsh start master02.massuite.online
+```
+
+```sh
+virsh start master03.massuite.online
+```
+
+```sh
+virsh start worker01.massuite.online
+```
+
+```sh
+virsh start worker02.massuite.online
+```
+
+```sh
+virsh start worker03.massuite.online
+```
+
+```sh
+virsh start worker04.massuite.online
+```
