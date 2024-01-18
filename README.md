@@ -1,6 +1,7 @@
 # Install Openshift on bare metal platform
 
 * [User Setup](docs/adminuser)
+* [Disk Space Setup](docs/disk-space/README.md)
 
 ```sh
 ssh ocpadmin@your_server_ip_address
