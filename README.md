@@ -244,3 +244,26 @@ sudo wget -O 01-52-54-00-85-41-f8 https://raw.githubusercontent.com/amitsindha/o
 sudo cp 01-52-54-00-85-41-f8 /var/lib/tftpboot/pxelinux.cfg/01-52-54-00-85-41-f8
 sudo rm 01-52-54-00-85-41-f8
 ```
+
+## Install OCP CLI
+
+```sh
+ssh ocphelperadmin@192.168.10.210
+```
+
+```sh
+cd /home/ocpadmin/ocp
+wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.11.48/openshift-client-linux.tar.gz
+tar xvf openshift-client-linux.tar.gz
+sudo mv oc kubectl /usr/local/bin
+rm -f README.md LICENSE openshift-client-linux.tar.gz
+wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.11.48/openshift-install-linux.tar.gz
+tar xvf openshift-install-linux.tar.gz
+sudo mv openshift-install /usr/local/bin
+rm -f README.md LICENSE openshift-install-linux.tar.gz
+openshift-install version
+oc version
+kubectl version --client
+ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
+
+```
