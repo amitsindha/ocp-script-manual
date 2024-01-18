@@ -1,1 +1,6 @@
 RRxxb-u3eeE-aRZPZ-pUbTg
+
+sample as below
+
+oc login -u kubeadmin -p RRxxb-u3eeE-aRZPZ-pUbTg https://api.ocp4.massuite.online:6443 --certificate-authority=ingress-ca.crt
+
