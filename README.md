@@ -71,5 +71,20 @@ sudo cp named.conf /etc/named.conf
 sudo rm named.conf 
 sudo mkdir -p  /etc/named/zones/
 sudo wget -O db.massuite.online https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/db.massuite.online
+sudo cp db.massuite.online /etc/named/zones/db.massuite.online 
+sudo rm db.massuite.online 
+sudo wget -O db.reverse https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/db.reverse
+sudo cp db.reverse /etc/named/zones/db.reverse
+sudo rm db.reverse
+sudo chown named:named /etc/named/zones/db.massuite.online
+sudo chown named:named /etc/named/zones/db.reverse
+sudo firewall-cmd --add-port=53/udp --zone=internal --permanent
+sudo firewall-cmd --add-port=53/tcp --zone=internal --permanent
+sudo firewall-cmd --reload
+sudo systemctl enable named
+sudo systemctl start named
+sudo systemctl status named
+ping ocp-healper
+sudo wget -O resolv.conf https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/named.conf
 ```
 
