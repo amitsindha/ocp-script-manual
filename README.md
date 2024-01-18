@@ -332,6 +332,10 @@ ssh ocpadmin@your_server
 ```
 
 ```sh
+ssh sudo su -
+```
+
+```sh
 sudo virt-install -n ocp-bootstrap.massuite.online \
 --description "Bootstrap Machine for Openshift 4 Cluster" \
 --ram=16384 \
