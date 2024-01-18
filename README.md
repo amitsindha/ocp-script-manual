@@ -95,5 +95,18 @@ sudo systemctl reload NetworkManager
 #ping ocp-healper
 ```
 
+## OCP Helper Node - DHCP Setup
 
- 
+```sh
+ssh ocphelperadmin@192.168.10.210
+```
+
+```sh
+sudo  dnf install dhcp-server -y
+cd /home/ocpadmin/ocp
+sudo wget -O dhcpd.conf https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/named.conf
+sudo cp named.conf /etc/named.conf
+sudo rm named.conf 
+
+
+```
