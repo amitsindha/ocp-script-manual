@@ -113,5 +113,43 @@ sudo firewall-cmd --add-service=dhcp --zone=internal --permanent
 sudo firewall-cmd --reload
 sudo systemctl enable dhcpd
 sudo systemctl start dhcpd
-sudo systemctl status dhcpd 
+#sudo systemctl status dhcpd 
 ```
+
+## Apache Web server and HAproxy
+
+
+```sh
+ssh ocphelperadmin@192.168.10.210
+```
+
+
+```sh
+sudo dnf install httpd -y
+cd /home/ocpadmin/ocp
+sudo sed -i 's/Listen 80/Listen 0.0.0.0:8080/' /etc/httpd/conf/httpd.conf
+sudo firewall-cmd --add-port=8080/tcp --zone=internal --permanent
+sudo firewall-cmd --reload
+sudo systemctl enable httpd 
+sudo systemctl start httpd
+sudo dnf install haproxy -y
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/bkp_haproxy.cfg
+sudo wget -O haproxy.cfg https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/haproxy.cfg
+sudo cp haproxy.cfg /etc/haproxy/haproxy.cfg
+sudo rm haproxy.cfg 
+sudo firewall-cmd --add-port=6443/tcp --zone=internal --permanent
+sudo firewall-cmd --add-port=6443/tcp --zone=external --permanent
+sudo firewall-cmd --add-port=22623/tcp --zone=internal --permanent 
+sudo firewall-cmd --add-service=http --zone=internal --permanent
+sudo firewall-cmd --add-service=http --zone=external --permanent
+sudo firewall-cmd --add-service=https --zone=internal --permanent 
+sudo firewall-cmd --add-service=https --zone=external --permanent 
+sudo firewall-cmd --add-port=9000/tcp --zone=external --permanent
+sudo firewall-cmd --reload
+sudo setsebool -P haproxy_connect_any 1 
+sudo systemctl enable haproxy
+sudo systemctl start haproxy
+sudo systemctl status haproxy
+```
+
+
