@@ -3,7 +3,7 @@
 Connect again to OCP helper node by using ocphelperadmin user (Change the IP of your environment)
 
 ```sh
-ssh ocphelperadmin@192.168.10.154
+ssh ocphelperadmin@192.168.10.210
 ```
 
 Setup OC environments
@@ -125,6 +125,21 @@ Add below host entery (Change the IP of the healper node)
 192.168.10.15 api.ocp4.massuite.online
 192.168.10.15 oauth-openshift.apps.ocp4.massuite.online
 ```
+
+OCP Remote Login faile with certificate error solution
+
+https://access.redhat.com/solutions/4505101
+
+sudo ufw status verbose
+sudo ufw allow OpenSSH
+sudo ufw allow ssh
+sudo ufw allow https
+sudo ufw allow 6443/tcp
+sudo ufw show added
+sudo ufw enable
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-18-04
+
 
 
 Install Ubuntu RDP
