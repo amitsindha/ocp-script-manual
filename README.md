@@ -37,5 +37,7 @@ rm -rf public_network.xml
 rm -rf private_network.xml
 ```
 
+* [OCP Healper Node Setup](docs/openshift-helper-node/README.md) 
+
 
 
