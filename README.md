@@ -177,3 +177,70 @@ sudo systemctl enable nfs-server rpcbind
 sudo systemctl start nfs-server rpcbind nfs-mountd
 sudo systemctl status nfs-server
 ```
+
+## TFTP Setup
+
+
+```sh
+ssh ocphelperadmin@192.168.10.210
+```
+
+```sh
+sudo yum -y install tftp-server syslinux
+cd /home/ocpadmin/ocp
+sudo firewall-cmd --zone=internal --add-service=tftp --permanent
+sudo firewall-cmd --reload
+sudo wget -O helper-tftp.service https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/TFTP/helper-tftp.service
+sudo cp helper-tftp.service /etc/systemd/system/helper-tftp.service
+sudo rm helper-tftp.service
+sudo tee /usr/local/bin/start-tftp.sh<<EOF
+#!/bin/bash
+/usr/bin/systemctl start tftp > /dev/null 2>&1
+##
+##
+EOF
+sudo chmod a+x /usr/local/bin/start-tftp.sh
+sudo systemctl daemon-reload
+sudo systemctl enable --now tftp helper-tftp
+sudo mkdir -p  /var/lib/tftpboot/pxelinux.cfg
+sudo cp -rvf /usr/share/syslinux/* /var/lib/tftpboot
+sudo mkdir -p /var/lib/tftpboot/rhcos
+wget https://mirror.openshift.com/pub/openshift-v4/x86_64/dependencies/rhcos/4.11/latest/rhcos-installer-kernel-x86_64
+sudo mv rhcos-installer-kernel-x86_64 /var/lib/tftpboot/rhcos/kernel
+wget https://mirror.openshift.com/pub/openshift-v4/x86_64/dependencies/rhcos/4.11/latest/rhcos-installer-initramfs.x86_64.img
+sudo mv rhcos-installer-initramfs.x86_64.img /var/lib/tftpboot/rhcos/initramfs.img
+sudo restorecon -RFv  /var/lib/tftpboot/rhcos
+ls /var/lib/tftpboot/rhcos
+sudo mkdir -p /var/www/html/rhcos
+wget https://mirror.openshift.com/pub/openshift-v4/x86_64/dependencies/rhcos/4.11/latest/rhcos-live-rootfs.x86_64.img
+sudo mv rhcos-live-rootfs.x86_64.img /var/www/html/rhcos/rootfs.img
+sudo restorecon -RFv /var/www/html/rhcos
+sudo chcon -R -t httpd_sys_content_t /var/www/html/rhcos/
+sudo chown -R apache: /var/www/html/rhcos/
+sudo chown -R apache: /var/www/html/rhcos/
+sudo chmod 755 /var/www/html/rhcos/
+sudo wget -O 01-52-54-00-4e-a5-b6 https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/TFTP/01-52-54-00-4e-a5-b6
+sudo cp 01-52-54-00-4e-a5-b6 /var/lib/tftpboot/pxelinux.cfg/01-52-54-00-4e-a5-b6
+sudo rm 01-52-54-00-4e-a5-b6
+sudo wget -O 01-52-54-00-62-b0-cb https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/TFTP/01-52-54-00-62-b0-cb
+sudo cp 01-52-54-00-62-b0-cb /var/lib/tftpboot/pxelinux.cfg/01-52-54-00-62-b0-cb
+sudo rm 01-52-54-00-62-b0-cb
+sudo wget -O 01-52-54-00-ac-c8-d2 https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/TFTP/01-52-54-00-ac-c8-d2
+sudo cp 01-52-54-00-ac-c8-d2 /var/lib/tftpboot/pxelinux.cfg/01-52-54-00-ac-c8-d2
+sudo rm 01-52-54-00-ac-c8-d2
+sudo wget -O 01-52-54-00-ac-1b-49 https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/TFTP/01-52-54-00-ac-1b-49
+sudo cp 01-52-54-00-ac-1b-49 /var/lib/tftpboot/pxelinux.cfg/01-52-54-00-ac-1b-49
+sudo rm 01-52-54-00-ac-1b-49
+sudo wget -O 01-52-54-00-08-56-ed https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/TFTP/01-52-54-00-08-56-ed
+sudo cp 01-52-54-00-08-56-ed /var/lib/tftpboot/pxelinux.cfg/01-52-54-00-08-56-ed
+sudo rm 01-52-54-00-08-56-ed
+sudo wget -O 01-52-54-00-a0-5a-d2 https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/TFTP/01-52-54-00-a0-5a-d2
+sudo cp 01-52-54-00-a0-5a-d2 /var/lib/tftpboot/pxelinux.cfg/01-52-54-00-a0-5a-d2
+sudo rm 01-52-54-00-a0-5a-d2
+sudo wget -O 01-52-54-00-47-5d-95 https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/TFTP/01-52-54-00-47-5d-95
+sudo cp 01-52-54-00-47-5d-95 /var/lib/tftpboot/pxelinux.cfg/01-52-54-00-47-5d-95
+sudo rm 01-52-54-00-47-5d-95
+sudo wget -O 01-52-54-00-85-41-f8 https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/TFTP/01-52-54-00-85-41-f8
+sudo cp 01-52-54-00-85-41-f8 /var/lib/tftpboot/pxelinux.cfg/01-52-54-00-85-41-f8
+sudo rm 01-52-54-00-85-41-f8
+```
