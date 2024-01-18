@@ -113,5 +113,5 @@ sudo firewall-cmd --add-service=dhcp --zone=internal --permanent
 sudo firewall-cmd --reload
 sudo systemctl enable dhcpd
 sudo systemctl start dhcpd
-sudo systemctl status dhcpd
+sudo systemctl status dhcpd 
 ```
