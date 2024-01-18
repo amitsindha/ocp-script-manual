@@ -149,7 +149,7 @@ sudo firewall-cmd --reload
 sudo setsebool -P haproxy_connect_any 1 
 sudo systemctl enable haproxy
 sudo systemctl start haproxy
-sudo systemctl status haproxy
+#sudo systemctl status haproxy
 ```
 
 
