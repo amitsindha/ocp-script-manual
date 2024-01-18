@@ -152,4 +152,18 @@ sudo systemctl start haproxy
 #sudo systemctl status haproxy
 ```
 
+## NFS Server for OCP Registery
 
+
+```sh
+ssh ocphelperadmin@192.168.10.210
+```
+
+```sh
+sudo dnf install nfs-utils -y
+cd /home/ocpadmin/ocp
+sudo mkdir -p /shares/registry
+sudo chown -R nobody:nobody /shares/registry
+sudo chmod -R 777 /shares/registry
+sudo wget -O exports https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/haproxy.cfg
+```
