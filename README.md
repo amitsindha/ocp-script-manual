@@ -265,5 +265,62 @@ openshift-install version
 oc version
 kubectl version --client
 ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
+```
 
+## Ignition Files
+
+```sh
+ssh ocphelperadmin@192.168.10.210
+```
+
+```sh
+cd /home/ocpadmin/ocp
+mkdir ~/.openshift
+sudo vi  ~/.openshift/pull-secret
+```
+
+```sh
+mkdir -p ~/ocp4
+cd ..
+cd ~/
+cat <<EOF > install-config-base.yaml
+apiVersion: v1
+baseDomain: massuite.online
+compute:
+- hyperthreading: Enabled
+  name: worker
+  replicas: 0
+controlPlane:
+  hyperthreading: Enabled
+  name: master
+  replicas: 3
+metadata:
+  name: ocp4
+networking:
+  clusterNetworks:
+  - cidr: 10.254.0.0/16
+    hostPrefix: 24
+  networkType: OpenShiftSDN
+  serviceNetwork:
+  - 172.30.0.0/16
+platform:
+  none: {}
+pullSecret: '$(< ~/.openshift/pull-secret)'
+sshKey: '$(< ~/.ssh/id_rsa.pub)'
+EOF
+ls
+cd ~/
+cp install-config-base.yaml ocp4/install-config.yaml
+cd ocp4
+openshift-install create manifests --dir ~/ocp4
+#sed -i 's/true/false/' manifests/cluster-scheduler-02-config.yml
+openshift-install create ignition-configs  --dir ~/ocp4
+sudo mkdir -p /var/www/html/ignition
+sudo cp -v *.ign /var/www/html/ignition
+sudo chmod 644 /var/www/html/ignition/*.ign
+sudo restorecon -RFv /var/www/html/
+ls /var/www/html/ignition/
+sudo systemctl enable --now haproxy.service dhcpd httpd tftp named
+sudo systemctl restart haproxy.service dhcpd httpd tftp named
+sudo systemctl status haproxy.service dhcpd httpd tftp named
 ```
