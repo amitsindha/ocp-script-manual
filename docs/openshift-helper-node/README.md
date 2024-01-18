@@ -164,7 +164,7 @@ Update host entery in the ocp healper node
 ```sh
 vi /etc/hosts
 ```
-
+ 
 
 Reference URL 
 
