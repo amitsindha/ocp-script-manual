@@ -1,5 +1,7 @@
 # Install Openshift on bare metal platform
 
+* [User Setup](docs/adminuser)
+
 ```sh
 ssh ocpadmin@your_server_ip_address
 ```
@@ -33,3 +35,6 @@ virsh net-list --all
 rm -rf public_network.xml
 rm -rf private_network.xml
 ```
+
+
+
