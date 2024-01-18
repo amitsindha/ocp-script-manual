@@ -141,6 +141,32 @@ sudo ufw show added
 sudo ufw enable
 ```
 
+Set up the OC client on Main server 
+
+Download OCP client installer
+
+```sh
+wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.11.48/openshift-client-linux.tar.gz
+```
+
+Extract file
+
+```sh
+tar xvf openshift-client-linux.tar.gz
+```
+
+Move files
+
+```sh
+sudo mv oc kubectl /usr/local/bin
+```
+
+Remove unwanted files
+
+```sh
+rm -f README.md LICENSE openshift-client-linux.tar.gz
+```
+
 https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-18-04
 
 
