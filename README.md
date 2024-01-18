@@ -39,5 +39,25 @@ rm -rf private_network.xml
 
 * [OCP Healper Node Setup](docs/openshift-helper-node/README.md) 
 
+## OCP Helper Node - Setup Firewall, Network Zone and DNS (Change your IP)
+
+```sh
+ssh ocphelperadmin@192.168.10.154
+```
+
+```sh
+sudo nmcli connection modify enp2s0 connection.zone internal
+sudo nmcli connection modify enp1s0 connection.zone external
+firewall-cmd --get-active-zones
+sudo firewall-cmd --zone=external --add-masquerade --permanent
+sudo firewall-cmd --zone=internal --add-masquerade --permanent
+sudo firewall-cmd --reload
+sudo firewall-cmd --list-all --zone=internal
+sudo firewall-cmd --list-all --zone=external
+```
+
+## OCP Helper Node - Setup OCP Zone on Bind DNS
+
+
 
 
