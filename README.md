@@ -83,8 +83,8 @@ sudo firewall-cmd --add-port=53/tcp --zone=internal --permanent
 sudo firewall-cmd --reload
 sudo systemctl enable named
 sudo systemctl start named
-sudo systemctl status named
-ping ocp-healper
+#sudo systemctl status named
+#ping ocp-healper
 sudo wget -O resolv.conf https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/resolv.conf
 sudo cp resolv.conf /etc/resolv.conf
 sudo rm resolv.conf
@@ -92,7 +92,7 @@ sudo wget -O 90-dns-none.conf https://raw.githubusercontent.com/amitsindha/ocp-s
 sudo cp 90-dns-none.conf /etc/NetworkManager/conf.d/90-dns-none.conf
 sudo rm 90-dns-none.conf
 sudo systemctl reload NetworkManager
-ping ocp-healper
+#ping ocp-healper
 ```
 
 
