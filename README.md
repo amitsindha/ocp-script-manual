@@ -58,6 +58,18 @@ sudo firewall-cmd --list-all --zone=external
 
 ## OCP Helper Node - Setup OCP Zone on Bind DNS
 
+```sh
+ssh ocphelperadmin@192.168.10.154
+```
 
-
+```sh
+sudo dnf install bind bind-utils -y
+sudo cp /etc/named.conf /etc/named_bkp.conf
+cd /home/ocpadmin/ocp
+sudo wget -O named.conf https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/named.conf
+sudo cp named.conf /etc/named.conf
+sudo rm named.conf 
+sudo mkdir -p  /etc/named/zones/
+sudo wget -O db.massuite.online https://raw.githubusercontent.com/amitsindha/ocp-manual/main/scripts/db.massuite.online 
+```
 

@@ -1,0 +1,43 @@
+$TTL    604800
+@       IN      SOA     ocp-healper.massuite.online. contact.massuite.online (
+                  5     ; Serial
+             604800     ; Refresh
+              86400     ; Retry
+            2419200     ; Expire
+             604800     ; Minimum
+)
+        IN      NS      ocp-healper
+
+ocp-healper.massuite.online.          IN      A       10.10.10.2
+
+; Temp Bootstrap Node
+ocp-bootstrap.ocp4.massuite.online.        IN      A      10.10.10.200
+
+; Control Plane Nodes
+ocp-cp-1.ocp4.massuite.online.         IN      A      10.10.10.201
+ocp-cp-2.ocp4.massuite.online.         IN      A      10.10.10.202
+ocp-cp-3.ocp4.massuite.online.         IN      A      10.10.10.203
+
+; Worker Nodes
+ocp-w-1.ocp4.massuite.online.        IN      A      10.10.10.211
+ocp-w-2.ocp4.massuite.online.        IN      A      10.10.10.212
+ocp-w-3.ocp4.massuite.online.        IN      A      10.10.10.213
+ocp-w-4.ocp4.massuite.online.        IN      A      10.10.10.214
+
+; OpenShift Internal - Load balancer
+api.ocp4.massuite.online.        IN    A    10.10.10.2
+api-int.ocp4.massuite.online.    IN    A    10.10.10.2
+*.apps.ocp4.massuite.online.     IN    A    10.10.10.2
+
+; ETCD Cluster
+etcd-0.ocp4.massuite.online.    IN    A     10.10.10.201
+etcd-1.ocp4.massuite.online.    IN    A     10.10.10.202
+etcd-2.ocp4.massuite.online.    IN    A     10.10.10.203
+
+; OpenShift Internal SRV records (cluster name = ocp4)
+_etcd-server-ssl._tcp.ocp4.massuite.online.    86400     IN    SRV     0    10    2380    etcd-0.ocp4
+_etcd-server-ssl._tcp.ocp4.massuite.online.    86400     IN    SRV     0    10    2380    etcd-1.ocp4
+_etcd-server-ssl._tcp.ocp4.massuite.online.    86400     IN    SRV     0    10    2380    etcd-2.ocp4
+
+oauth-openshift.apps.ocp4.massuite.online.     IN     A     10.10.10.2
+console-openshift-console.apps.ocp4.massuite.online.     IN     A     10.10.10.2
