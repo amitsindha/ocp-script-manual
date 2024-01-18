@@ -159,6 +159,11 @@ Select the check box Automatically connect
 ![image](https://github.com/amitsindha/Openshift-local/assets/6096922/8efe289b-7f61-43b2-aee1-5a58effb469a)
 
 
+Update host entery in the ocp healper node
+
+```sh
+vi /etc/hosts
+```
 
 
 Reference URL 
