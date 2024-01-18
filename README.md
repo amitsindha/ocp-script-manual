@@ -165,5 +165,15 @@ cd /home/ocpadmin/ocp
 sudo mkdir -p /shares/registry
 sudo chown -R nobody:nobody /shares/registry
 sudo chmod -R 777 /shares/registry
-sudo wget -O exports https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/haproxy.cfg
+sudo wget -O exports https://raw.githubusercontent.com/amitsindha/ocp-script-manual/main/templates/exports
+sudo cp exports /etc/exports
+sudo rm exports
+sudo exportfs -rv
+sudo firewall-cmd --zone=internal --add-service mountd --permanent
+sudo firewall-cmd --zone=internal --add-service rpc-bind --permanent
+sudo firewall-cmd --zone=internal --add-service nfs --permanent
+sudo firewall-cmd --reload
+sudo systemctl enable nfs-server rpcbind
+sudo systemctl start nfs-server rpcbind nfs-mountd
+sudo systemctl status nfs-server
 ```
