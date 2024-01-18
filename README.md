@@ -493,3 +493,9 @@ virsh start worker03.massuite.online
 ```sh
 virsh start worker04.massuite.online
 ```
+
+* [OCP Initial setup](docs/ocp-initial-setup/README.md)
+
+
+
+
