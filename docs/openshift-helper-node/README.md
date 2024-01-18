@@ -159,6 +159,8 @@ Select the check box Automatically connect
 ![image](https://github.com/amitsindha/Openshift-local/assets/6096922/8efe289b-7f61-43b2-aee1-5a58effb469a)
 
 
+
+
 Reference URL 
 
 https://www.cyberciti.biz/faq/howto-setting-rhel7-centos-7-static-ip-configuration/
