@@ -1,0 +1,25 @@
+$TTL    604800
+@       IN      SOA     ocp-healper.massuite.online. contact.massuite.online (
+                  5     ; Serial
+             604800     ; Refresh
+              86400     ; Retry
+            2419200     ; Expire
+             604800     ; Minimum
+)
+
+  IN      NS      ocp-healper.massuite.online.
+
+2      IN    PTR    ocp-healper.massuite.online.
+2      IN    PTR    api.ocp4.massuite.online.
+2      IN    PTR    api-int.ocp4.massuite.online.
+;
+200    IN    PTR    ocp-bootstrap.ocp4.massuite.online.
+;
+201    IN    PTR    ocp-cp-1.ocp4.massuite.online.
+202    IN    PTR    ocp-cp-2.ocp4.massuite.online.
+203    IN    PTR    ocp-cp-3.ocp4.massuite.online.
+;
+211    IN    PTR    ocp-w-1.ocp4.massuite.online.
+212    IN    PTR    ocp-w-2.ocp4.massuite.online.
+213    IN    PTR    ocp-w-3.ocp4.massuite.online.
+214    IN    PTR    ocp-w-4.ocp4.massuite.online.
