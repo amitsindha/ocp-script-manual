@@ -1,0 +1,183 @@
+SERVER nonprod 10005a2880e3 27000
+VENDOR ibmratl
+VENDOR telelogic
+VENDOR rational
+
+INCREMENT AppPoints ibmratl 1.0 permanent 100 vendor_info="0|IBM \
+	Maximo AppPoints Pool|0" ISSUED=16-Oct-2023 NOTICE="Sales \
+	Order Number:0063336606;Account ID:0007967787;Customer \
+	Name:IBM Customer Name;ICN:738812;Purchase Order:BIAL \
+	Agreement - PO 4600010819;Contract:0000165777;Country:IN" \
+	SIGN="007B BF10 EA98 7F44 06B2 FE9F 2722 6400 73A5 F720 0BD8 \
+	2B40 6B21 8CA1 CF9E"
+
+INCREMENT MAS-Admin-Limited ibmratl 1.0 permanent 1 \
+	VENDOR_STRING=IBM:t,AppPoints,1.0,MAS-Admin-Limited,5 \
+	ISSUED=16-Oct-2023 NOTICE="Sales Order \
+	Number:0063336606;Account ID:0007967787;Customer Name:IBM \
+	Customer Name;ICN:738812;Purchase Order:BIAL Agreement - PO \
+	4600010819;Contract:0000165777;Country:IN" SIGN="00B1 E966 \
+	A9F4 897D 38CB 21D2 22A3 9700 36EB B714 E01D D935 CC05 9576 \
+	FC44"
+
+INCREMENT MAS-Admin-Base ibmratl 1.0 permanent 1 \
+	VENDOR_STRING=IBM:t,AppPoints,1.0,MAS-Admin-Base,10 \
+	ISSUED=16-Oct-2023 NOTICE="Sales Order \
+	Number:0063336606;Account ID:0007967787;Customer Name:IBM \
+	Customer Name;ICN:738812;Purchase Order:BIAL Agreement - PO \
+	4600010819;Contract:0000165777;Country:IN" SIGN="0097 ABA3 \
+	9FD0 F35C DDDD AA1F D7AD 7800 AD3D 562D 4ED0 6C6F 5A6A FBF9 \
+	BA4E"
+
+INCREMENT MAS-Admin-Premium ibmratl 1.0 permanent 1 \
+	VENDOR_STRING=IBM:t,AppPoints,1.0,MAS-Admin-Premium,15 \
+	ISSUED=16-Oct-2023 NOTICE="Sales Order \
+	Number:0063336606;Account ID:0007967787;Customer Name:IBM \
+	Customer Name;ICN:738812;Purchase Order:BIAL Agreement - PO \
+	4600010819;Contract:0000165777;Country:IN" SIGN="0066 A946 \
+	E676 24FC A69C 1A61 B8B3 3100 FDCE 64B9 198A 2B27 305A FA23 \
+	38E4"
+
+INCREMENT MAS-API-Limited ibmratl 1.0 permanent 1 \
+	VENDOR_STRING=IBM:t,AppPoints,1.0,MAS-API-Limited,5 \
+	ISSUED=16-Oct-2023 NOTICE="Sales Order \
+	Number:0063336606;Account ID:0007967787;Customer Name:IBM \
+	Customer Name;ICN:738812;Purchase Order:BIAL Agreement - PO \
+	4600010819;Contract:0000165777;Country:IN" SIGN="00E3 AB88 \
+	D13B C13E B336 C53B E58A 6500 716E 82A3 D4D4 58CD 3578 16C6 \
+	D970"
+
+INCREMENT MAS-API-Base ibmratl 1.0 permanent 1 \
+	VENDOR_STRING=IBM:t,AppPoints,1.0,MAS-API-Base,10 \
+	ISSUED=16-Oct-2023 NOTICE="Sales Order \
+	Number:0063336606;Account ID:0007967787;Customer Name:IBM \
+	Customer Name;ICN:738812;Purchase Order:BIAL Agreement - PO \
+	4600010819;Contract:0000165777;Country:IN" SIGN="0099 B101 \
+	CB3E 444A 180C 3D27 F4C7 B500 5E26 FE67 85CE 44A1 DF40 A8A2 \
+	CA57"
+
+INCREMENT MAS-API-Premium ibmratl 1.0 permanent 1 \
+	VENDOR_STRING=IBM:t,AppPoints,1.0,MAS-API-Premium,15 \
+	ISSUED=16-Oct-2023 NOTICE="Sales Order \
+	Number:0063336606;Account ID:0007967787;Customer Name:IBM \
+	Customer Name;ICN:738812;Purchase Order:BIAL Agreement - PO \
+	4600010819;Contract:0000165777;Country:IN" SIGN="00A3 0095 \
+	C011 05E3 FE28 0817 F458 7900 E234 5A39 7695 5412 B113 3A1C \
+	A02F"
+
+INCREMENT MAS-Limited ibmratl 1.0 permanent 1 \
+	VENDOR_STRING=IBM:t,AppPoints,1.0,MAS-Limited,5 \
+	ISSUED=16-Oct-2023 NOTICE="Sales Order \
+	Number:0063336606;Account ID:0007967787;Customer Name:IBM \
+	Customer Name;ICN:738812;Purchase Order:BIAL Agreement - PO \
+	4600010819;Contract:0000165777;Country:IN" SIGN="000C 1D5C \
+	1AFE 7871 2DEE 91C7 7A66 2C00 0660 89A4 7FC6 4EEA 6F39 8976 \
+	466D"
+
+INCREMENT MAS-Base ibmratl 1.0 permanent 1 \
+	VENDOR_STRING=IBM:t,AppPoints,1.0,MAS-Base,10 \
+	ISSUED=16-Oct-2023 NOTICE="Sales Order \
+	Number:0063336606;Account ID:0007967787;Customer Name:IBM \
+	Customer Name;ICN:738812;Purchase Order:BIAL Agreement - PO \
+	4600010819;Contract:0000165777;Country:IN" SIGN="00BA 96CC \
+	11AC 125F 309D DE9B EFBB 2600 8445 E70F 1C3A F70A 235C 6CC3 \
+	00D4"
+
+INCREMENT MAS-Premium ibmratl 1.0 permanent 1 \
+	VENDOR_STRING=IBM:t,AppPoints,1.0,MAS-Premium,15 \
+	ISSUED=16-Oct-2023 NOTICE="Sales Order \
+	Number:0063336606;Account ID:0007967787;Customer Name:IBM \
+	Customer Name;ICN:738812;Purchase Order:BIAL Agreement - PO \
+	4600010819;Contract:0000165777;Country:IN" SIGN="004B 40F1 \
+	19ED 4512 D4C3 ABBA 680D 7A00 032C 78D8 4BAA 5205 5874 3742 \
+	D390"
+
+INCREMENT MAS-Add-On-Limited ibmratl 1.0 permanent 1 \
+	VENDOR_STRING=IBM:t,AppPoints,1.0,MAS-Add-On-Limited,5 \
+	ISSUED=16-Oct-2023 NOTICE="Sales Order \
+	Number:0063336606;Account ID:0007967787;Customer Name:IBM \
+	Customer Name;ICN:738812;Purchase Order:BIAL Agreement - PO \
+	4600010819;Contract:0000165777;Country:IN" SIGN="00B9 5236 \
+	551C 9561 71AE E0C5 97D0 5F00 B92B 9D08 DD71 6A04 9517 0192 \
+	11C5"
+
+INCREMENT MAS-Add-On-Base ibmratl 1.0 permanent 1 \
+	VENDOR_STRING=IBM:t,AppPoints,1.0,MAS-Add-On-Base,10 \
+	ISSUED=16-Oct-2023 NOTICE="Sales Order \
+	Number:0063336606;Account ID:0007967787;Customer Name:IBM \
+	Customer Name;ICN:738812;Purchase Order:BIAL Agreement - PO \
+	4600010819;Contract:0000165777;Country:IN" SIGN="0068 E660 \
+	9B16 35F1 088F 3987 1966 BD00 F640 7858 33FE 7B8D 1C68 8009 \
+	2D90"
+
+INCREMENT MAS-Add-On-Premium ibmratl 1.0 permanent 1 \
+	VENDOR_STRING=IBM:t,AppPoints,1.0,MAS-Add-On-Premium,15 \
+	ISSUED=16-Oct-2023 NOTICE="Sales Order \
+	Number:0063336606;Account ID:0007967787;Customer Name:IBM \
+	Customer Name;ICN:738812;Purchase Order:BIAL Agreement - PO \
+	4600010819;Contract:0000165777;Country:IN" SIGN="0091 6EB5 \
+	4F66 00F9 B288 EA61 502B 3800 4C4A 9CCE 4C3C AB87 854E 14F3 \
+	36FC"
+
+INCREMENT MAS-Server-Limited ibmratl 1.0 permanent 1 \
+	VENDOR_STRING=IBM:t,AppPoints,1.0,MAS-Server-Limited,5 \
+	ISSUED=16-Oct-2023 NOTICE="Sales Order \
+	Number:0063336606;Account ID:0007967787;Customer Name:IBM \
+	Customer Name;ICN:738812;Purchase Order:BIAL Agreement - PO \
+	4600010819;Contract:0000165777;Country:IN" SIGN="0008 7400 \
+	61B5 E04D 1DAE B206 FD0F 3600 5BA6 E2B5 EDC6 9D77 BAED C46F \
+	CD78"
+
+INCREMENT MAS-Server-Base ibmratl 1.0 permanent 1 \
+	VENDOR_STRING=IBM:t,AppPoints,1.0,MAS-Server-Base,10 \
+	ISSUED=16-Oct-2023 NOTICE="Sales Order \
+	Number:0063336606;Account ID:0007967787;Customer Name:IBM \
+	Customer Name;ICN:738812;Purchase Order:BIAL Agreement - PO \
+	4600010819;Contract:0000165777;Country:IN" SIGN="0028 93B8 \
+	B547 9A58 3E0C 0772 8A0E D400 55D9 0995 35FC 802F 38A6 6D09 \
+	33F3"
+
+INCREMENT MAS-Server-Premium ibmratl 1.0 permanent 1 \
+	VENDOR_STRING=IBM:t,AppPoints,1.0,MAS-Server-Premium,15 \
+	ISSUED=16-Oct-2023 NOTICE="Sales Order \
+	Number:0063336606;Account ID:0007967787;Customer Name:IBM \
+	Customer Name;ICN:738812;Purchase Order:BIAL Agreement - PO \
+	4600010819;Contract:0000165777;Country:IN" SIGN="00FA 8F09 \
+	F809 1C75 32AA E9A0 A609 4800 69BE 3949 B773 7614 C7E2 E8C9 \
+	21AD"
+
+INCREMENT MAS-SelfService ibmratl 1.0 permanent 1 \
+	VENDOR_STRING=IBM:t,AppPoints,1.0,MAS-SelfService,0 \
+	ISSUED=16-Oct-2023 NOTICE="Sales Order \
+	Number:0063336606;Account ID:0007967787;Customer Name:IBM \
+	Customer Name;ICN:738812;Purchase Order:BIAL Agreement - PO \
+	4600010819;Contract:0000165777;Country:IN" SIGN="0036 E500 \
+	8F72 4BA5 F28D 5543 E927 FF00 011E 2E9B 049C 23D8 8C56 F76A \
+	893A"
+
+INCREMENT MAS-Limited-Authorized ibmratl 1.0 permanent 1 \
+	VENDOR_STRING=IBM:t,AppPoints,1.0,MAS-Limited-Authorized,2 \
+	ISSUED=16-Oct-2023 NOTICE="Sales Order \
+	Number:0063336606;Account ID:0007967787;Customer Name:IBM \
+	Customer Name;ICN:738812;Purchase Order:BIAL Agreement - PO \
+	4600010819;Contract:0000165777;Country:IN" SIGN="00C6 023D \
+	5B34 201A 6276 904C 8FF9 7A00 76B9 2BC3 958C 91A6 2BC5 34DC \
+	9706"
+
+INCREMENT MAS-Base-Authorized ibmratl 1.0 permanent 1 \
+	VENDOR_STRING=IBM:t,AppPoints,1.0,MAS-Base-Authorized,3 \
+	ISSUED=16-Oct-2023 NOTICE="Sales Order \
+	Number:0063336606;Account ID:0007967787;Customer Name:IBM \
+	Customer Name;ICN:738812;Purchase Order:BIAL Agreement - PO \
+	4600010819;Contract:0000165777;Country:IN" SIGN="0072 81A1 \
+	BDC6 3752 B1C4 1B77 3FCA 0A00 9BA5 39F1 AAF5 808D A5B1 0363 \
+	4D7E"
+
+INCREMENT MAS-Premium-Authorized ibmratl 1.0 permanent 1 \
+	VENDOR_STRING=IBM:t,AppPoints,1.0,MAS-Premium-Authorized,5 \
+	ISSUED=16-Oct-2023 NOTICE="Sales Order \
+	Number:0063336606;Account ID:0007967787;Customer Name:IBM \
+	Customer Name;ICN:738812;Purchase Order:BIAL Agreement - PO \
+	4600010819;Contract:0000165777;Country:IN" SIGN="00B5 8612 \
+	4187 B548 FCEA CE56 4E28 7800 F9F7 59C2 9120 ADE3 FEB3 E1F3 \
+	31A1"
