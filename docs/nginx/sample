@@ -1,0 +1,108 @@
+server_names_hash_bucket_size 128; # can be change to 64, 128, 256, 512
+#proxy_buffering off;
+#proxy_buffer_size 16k;
+#proxy_busy_buffers_size 24k;
+#proxy_buffers 64 4k;
+#client_body_buffer_size     32k;
+#client_header_buffer_size   8k;
+#large_client_header_buffers 8 64k;
+
+# don't redirect proxy
+#proxy_redirect  off;
+# turn off global logging
+access_log off;
+# logging format
+log_format compression '$remote_addr - $remote_user [$time_local] '
+                       '"$request" $status $bytes_sent '
+                       '"$http_referer" "$http_user_agent" "$gzip_ratio"';
+############################
+#
+# allow let`s Encrypt on port 80 for all domains
+#
+server {
+  listen 80;
+  listen [::]:80;
+  server_name ~. ;
+
+  location /.well-known/acme-challenge {
+    root /var/www/html;
+    default_type text/plain;
+  }
+
+  location / {
+    return 301 https://$host$uri;
+  }
+}
+server {
+	listen 443 ssl http2;
+	listen [::]:443 ssl http2;
+	server_name massuite.online; # replace with your domain
+
+	# replace your domain in both paths
+	ssl_certificate /etc/letsencrypt/live/massuite.online/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/massuite.online/privkey.pem;
+
+	location / {
+		root         /var/www/html;
+	}
+}
+
+server {
+	listen 443 ssl http2;
+	listen [::]:443 ssl http2;
+	server_name console-openshift-console.apps.ocp4.massuite.online; # replace with your domain
+
+	# replace your domain in both paths
+	ssl_certificate /etc/letsencrypt/live/console-openshift-console.apps.ocp4.massuite.online/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/console-openshift-console.apps.ocp4.massuite.online/privkey.pem;
+
+	large_client_header_buffers 8 128k;
+	location / {
+		#root         /var/www/html;
+		proxy_set_header        Host console-openshift-console.apps.ocp4.massuite.online;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header                Cookie $http_cookie;
+		proxy_pass https://console-openshift-console.apps.ocp4.massuite.online;
+	}
+}
+
+server {
+	listen 443 ssl http2;
+	listen [::]:443 ssl http2;
+	server_name oauth-openshift.apps.ocp4.massuite.online; # replace with your domain
+
+	# replace your domain in both paths
+	ssl_certificate /etc/letsencrypt/live/oauth-openshift.apps.ocp4.massuite.online/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/oauth-openshift.apps.ocp4.massuite.online/privkey.pem;
+
+	large_client_header_buffers 8 128k;
+	location / {
+		#root         /var/www/html;
+		proxy_set_header        Host oauth-openshift.apps.ocp4.massuite.online;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header                Cookie $http_cookie;
+		proxy_pass https://oauth-openshift.apps.ocp4.massuite.online;
+	}
+}
+
+server {
+	listen 443 ssl http2;
+	listen [::]:443 ssl http2;
+	server_name api.ocp4.massuite.online; # replace with your domain
+
+	# replace your domain in both paths
+	ssl_certificate /etc/letsencrypt/live/api.ocp4.massuite.online/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/api.ocp4.massuite.online/privkey.pem;
+
+	large_client_header_buffers 8 128k;
+	location / {
+		#root         /var/www/html;
+		proxy_set_header        Host api.ocp4.massuite.online;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header                Cookie $http_cookie;
+		proxy_pass https://api.ocp4.massuite.online;
+	}
+}

@@ -136,9 +136,11 @@ sudo ufw allow OpenSSH
 sudo ufw allow ssh
 sudo ufw allow https
 sudo ufw allow 6443/tcp
-sudo ufw allow 81/tcp
+sudo ufw allow 43/tcp
+sudo ufw allow 53/tcp
 sudo ufw show added
 sudo ufw enable
+sudo ufw reload
 ```
 
 Set up the OC client on Main server 
