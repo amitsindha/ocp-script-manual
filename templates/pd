@@ -7,3 +7,16 @@ oc login -u kubeadmin -p RRxxb-u3eeE-aRZPZ-pUbTg https://api.ocp4.massuite.onlin
 oc get events -n ibm-common-services --sort-by='.lastTimestamp'
 
 oc get events -n ibm-common-services --sort-by=.metadata.creationTimestamp
+
+admin id password = 
+id = gfTlvlhjkyYfmytFEE4XJufxr2CpTHki
+pwd = O4Qdn1ZOeZLY9bsmBGOAuh85WDZk6Sn3
+
+masadmin
+Masadmin@0123456789
+
+testuser
+Testuser@0123456789
+
+maxadmin
+Maxadmin@0123456789
